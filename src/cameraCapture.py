@@ -1,7 +1,7 @@
 import cv2
 
 class Camera:
-    def __init__(self, camera_index=1):
+    def __init__(self, camera_index=0):
         self.camera_index = camera_index
         self.cap = cv2.VideoCapture(self.camera_index)
 

@@ -3,7 +3,7 @@ import cv2
 from cameraCapture import Camera
 
 if __name__ == "__main__":
-    camera = Camera(camera_index=0)
+    camera = Camera(camera_index=1)
 
     try:
         while True:
