@@ -1,34 +1,21 @@
 import cv2
 
-def capture_camera(camera_index=1):
-    # Open the camera using the specified camera_index (default is 0 for the default camera)
-    cap = cv2.VideoCapture(camera_index)
+class Camera:
+    def __init__(self, camera_index=1):
+        self.camera_index = camera_index
+        self.cap = cv2.VideoCapture(self.camera_index)
 
-    # Check if the camera opened successfully
-    if not cap.isOpened():
-        print("Error: Could not open camera.")
-        return
+        if not self.cap.isOpened():
+            raise ValueError("Error: Could not open camera.")
 
-    try:
-        while True:
-            # Capture a frame from the camera
-            ret, frame = cap.read()
+    def capture_frame(self):
+        ret, frame = self.cap.read()
 
-            # Check if the frame was captured successfully
-            if not ret:
-                print("Error: Could not read a frame.")
-                break
+        if not ret:
+            raise ValueError("Error: Could not read a frame.")
 
-            # Display the captured frame
-            cv2.imshow("Camera Capture", frame)
+        return frame
 
-            # Exit the loop if the user presses the 'q' key
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
-    finally:
-        # Release the camera and close all OpenCV windows
-        cap.release()
-        cv2.destroyAllWindows()
+    def release(self):
+        self.cap.release()
 
-if __name__ == "__main__":
-    capture_camera()
