@@ -10,7 +10,7 @@ if __name__ == "__main__":
             frame = camera.capture_frame()
             cv2.imshow("Camera Capture", frame)
 
-
+            
 
 
 
