@@ -4,7 +4,7 @@ from cameraCapture import Camera
 from objectDetection import ShapeDetector
 
 if __name__ == "__main__":
-    camera = Camera(camera_index=2)
+    camera = Camera(camera_index=0)
 
     try:
         while True:
