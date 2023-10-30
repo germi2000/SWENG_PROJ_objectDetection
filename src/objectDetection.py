@@ -1,8 +1,11 @@
 # Import librarys
 import cv2
 import numpy as np
+
 # Import class
 from editImage import Labeling
+from colorDetection import ColorDetector
+
 
 # Define function identify and frame objects
 def identify_shape(num_sides, contour):
@@ -24,8 +27,8 @@ def identify_shape(num_sides, contour):
 # Class to detect contours and call edit images functions
 class ShapeDetector:
     def __init__(self):
-        pass
-
+        self.color_detector = ColorDetector()
+        
     def detect(self, image):
         # Create grayscale for easier contour detection
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -39,6 +42,8 @@ class ShapeDetector:
 
         for contour in contours:
 
+            cv2.putText(image, color_name, (cX - 15, cY - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
+           
             # filter for the right size
             if cv2.contourArea(contour) < 40 * 40:
                continue
@@ -58,5 +63,6 @@ class ShapeDetector:
             labeling.label_shape(image, contour, objectShape)
             labeling.save_shape(detected_shapes, objectShape, contour)
             labeling.draw_contour(image, contour)
+
 
         return image, detected_shapes

@@ -1,4 +1,20 @@
+
+"""
+Fachhochschule Graubünden
+
+Klasse: MRVZ21
+Fach: Software Engineering
+Projektname: Object Detection
+
+Autoren: Yannick Kohler, Tim Germann
+
+Datum: 26.10.2023
+Version: 1.0
+"""
+
+
 # Import library
+
 import cv2
 # Import classes
 from cameraCapture import Camera
@@ -8,6 +24,7 @@ from objectDetection import ShapeDetector
 if __name__ == "__main__":
 
     # Set the right camera index
+
     camera = Camera(camera_index=0)
 
     try:
