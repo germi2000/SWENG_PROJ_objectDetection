@@ -1,23 +1,30 @@
+# Import library
 import cv2
-
+# Import classes
 from cameraCapture import Camera
 from objectDetection import ShapeDetector
 
+# Main programm
 if __name__ == "__main__":
-    camera = Camera(camera_index=2)
+
+    # Set the right camera index
+    camera = Camera(camera_index=0)
 
     try:
         while True:
+            
+            # Shows the raw camera feed
             frame = camera.capture_frame()
             cv2.imshow("Camera Capture", frame)
 
-          # ShapeDetector-Objekt erstellen und Formen erkennen
+            # Detect Objects and edit the image
             shape_detector = ShapeDetector()
             result, detected_shapes = shape_detector.detect(frame)
 
-            # Livebild anzeigen
+            # Shows the edited camera feed
             cv2.imshow("Shape Detection", result)
 
+            # Press key 'q' to quit the live camera feed
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
     except KeyboardInterrupt:
