@@ -32,7 +32,7 @@ class ColorDetector:
 
         # Calculate the average HSV color in the region
         average_hsv_color = np.mean(color_region, axis=(0, 1)).astype(int)
-        print(average_hsv_color)
+
         # Classify the color using the ColorDetector class
         color_name = self.classify_color(average_hsv_color)
 

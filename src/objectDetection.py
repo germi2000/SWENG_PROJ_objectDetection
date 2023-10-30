@@ -27,7 +27,7 @@ def identify_shape(num_sides, contour):
 # Class to detect contours and call edit images functions
 class ShapeDetector:
     def __init__(self):
-        self.color_detector = ColorDetector()
+        pass
         
     def detect(self, image):
         # Create grayscale for easier contour detection
@@ -40,9 +40,7 @@ class ShapeDetector:
         detected_shapes = []
 
 
-        for contour in contours:
-
-            cv2.putText(image, color_name, (cX - 15, cY - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
+        for contour in contours:       
            
             # filter for the right size
             if cv2.contourArea(contour) < 40 * 40:
