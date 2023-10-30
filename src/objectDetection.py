@@ -15,7 +15,7 @@ def identify_shape(num_sides, contour):
             shape = "Square"
         else:
             shape = "Rectangle"
-    elif 7 <= num_sides <= 8:
+    elif 5 <= num_sides <= 8:
         shape = "Circle"
     else:
         shape = "Unknown"
@@ -36,7 +36,15 @@ class ShapeDetector:
         contours, _ = cv2.findContours(edges.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)       
         detected_shapes = []
 
+
         for contour in contours:
+
+            # filter for the right size
+            if cv2.contourArea(contour) < 40 * 40:
+               continue
+            elif cv2.contourArea(contour) > 400 * 400:
+                continue
+
             # contour approximation
             epsilon = 0.04 * cv2.arcLength(contour, True)
             approx = cv2.approxPolyDP(contour, epsilon, True)
