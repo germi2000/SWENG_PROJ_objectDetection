@@ -58,8 +58,7 @@ class ShapeDetector:
             objectShape = identify_shape(num_sides, contour)
 
             # Call methodes from Labeling class to edit image
-            self.labeling.label_shape(image, contour, objectShape)
-            self.labeling.save_shape(detected_shapes, objectShape, contour)
+            detected_shapes = self.labeling.label_shape(detected_shapes, image, contour, objectShape)
             self.labeling.draw_contour(image, contour)
 
 
