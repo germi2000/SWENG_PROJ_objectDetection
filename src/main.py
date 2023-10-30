@@ -1,3 +1,16 @@
+"""
+Fachhochschule Graubünden
+
+Klasse: MRVZ21
+Fach: Software Engineering
+Projektname: Object Detection
+
+Autoren: Yannick Kohler, Tim Germann
+
+Datum: 26.10.2023
+Version: 1.0
+"""
+
 import cv2
 
 from cameraCapture import Camera

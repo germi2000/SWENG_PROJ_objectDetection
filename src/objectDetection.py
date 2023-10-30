@@ -8,7 +8,7 @@ class ShapeDetector:
         self.color_detector = ColorDetector()
 
     def detect(self, image):
-               
+
         # Kantenerkennung
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(gray, (5, 5), 0)
@@ -20,9 +20,15 @@ class ShapeDetector:
         detected_shapes = []
 
         for contour in contours:
+
+            if cv2.contourArea(contour) < 40 * 40:
+                continue
+            elif cv2.contourArea(contour) > 400 * 400:
+                continue
+            
             # Initialize shape as "Unknown"
-            shape = "Unknown"
-            color_name = "Unknown"
+            shape = " "
+            color_name = " "
             # Extract color from a 3x3 region around the centroid
             M = cv2.moments(contour)
             if M["m00"] != 0:
