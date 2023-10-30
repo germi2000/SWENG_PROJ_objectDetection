@@ -27,7 +27,8 @@ def identify_shape(num_sides, contour):
 # Class to detect contours and call edit images functions
 class ShapeDetector:
     def __init__(self):
-        pass
+        self.labeling = Labeling()
+
         
     def detect(self, image):
         # Create grayscale for easier contour detection
@@ -57,10 +58,9 @@ class ShapeDetector:
             objectShape = identify_shape(num_sides, contour)
 
             # Call methodes from Labeling class to edit image
-            labeling = Labeling()
-            labeling.label_shape(image, contour, objectShape)
-            labeling.save_shape(detected_shapes, objectShape, contour)
-            labeling.draw_contour(image, contour)
+            self.labeling.label_shape(image, contour, objectShape)
+            self.labeling.save_shape(detected_shapes, objectShape, contour)
+            self.labeling.draw_contour(image, contour)
 
 
         return image, detected_shapes

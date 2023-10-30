@@ -21,8 +21,7 @@ class Labeling:
 
     # Methode to save the shape
     def save_shape(self, detected_shapes, objectShape, contour):
-        detected_shapes.append((objectShape, contour))
-
+        detected_shapes.append((contour, objectShape))
     # Methode to frame de contour
     def draw_contour(self, image, contour):
         cv2.drawContours(image, [contour], -1, (0, 255, 0), 2)
