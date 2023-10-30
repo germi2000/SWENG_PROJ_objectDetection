@@ -1,5 +1,7 @@
+# Import library
 import cv2
 
+# Class to capture the camera
 class Camera:
     def __init__(self, camera_index=0):
         self.camera_index = camera_index
