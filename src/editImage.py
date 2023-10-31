@@ -1,6 +1,5 @@
 # Import library
 import cv2
-import csv
 import datetime
 
 from colorDetection import ColorDetector

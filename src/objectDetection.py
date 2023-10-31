@@ -21,15 +21,16 @@ def identify_shape(num_sides, contour):
     elif 5 <= num_sides <= 8:
         shape = "Circle"
     else:
-        shape = "Unknown"
+        shape = "N/A"
     return shape
 
 # Class to detect contours and call edit images functions
 class ShapeDetector:
+
     def __init__(self):
         self.labeling = Labeling()
+        self.detected_shapes = []
 
-        
     def detect(self, image):
         # Create grayscale for easier contour detection
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -38,7 +39,7 @@ class ShapeDetector:
         blurred = cv2.GaussianBlur(gray, (5, 5), 0)
         edges = cv2.Canny(blurred, 50, 150)
         contours, _ = cv2.findContours(edges.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)       
-        detected_shapes = []
+        
 
 
         for contour in contours:       
@@ -58,8 +59,8 @@ class ShapeDetector:
             objectShape = identify_shape(num_sides, contour)
 
             # Call methodes from Labeling class to edit image
-            detected_shapes = self.labeling.label_shape(detected_shapes, image, contour, objectShape)
+            self.detected_shapes = self.labeling.label_shape(self.detected_shapes, image, contour, objectShape)
             self.labeling.draw_contour(image, contour)
 
 
-        return image, detected_shapes
+        return image, self.detected_shapes
