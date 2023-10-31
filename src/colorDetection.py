@@ -20,7 +20,7 @@ class ColorDetector:
             if np.all(average_hsv_color >= lower) and np.all(average_hsv_color <= upper):
                 return color_name
 
-        return " "
+        return "N/A"
     
     def detect_color(self, image, cX, cY):
         
