@@ -43,10 +43,10 @@ class ShapeDetector:
 
 
         for contour in contours:       
-           
+        
             # filter for the right size
             if cv2.contourArea(contour) < 40 * 40:
-               continue
+                continue
             elif cv2.contourArea(contour) > 400 * 400:
                 continue
 
