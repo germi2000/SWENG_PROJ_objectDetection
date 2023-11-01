@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
             # Shows the edited camera feed
             cv2.imshow("Shape Detection", result)
-                                    
+            
             # Press key 'q' to quit the live camera feed
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 logger.write_data(detected_shapes)
