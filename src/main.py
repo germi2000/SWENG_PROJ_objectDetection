@@ -50,7 +50,7 @@ if __name__ == "__main__":
             # Detect Objects and shows the camera feed with shape detection
             result, detected_shapes = shape_detector.detect(img_roi)
             cv2.imshow("Shape Detection", result)
-                                             
+            
             # Press key 'q' to quit the live camera feed
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 logger.write_data(detected_shapes)
