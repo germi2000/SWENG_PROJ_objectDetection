@@ -1,20 +1,19 @@
 import cv2
 import numpy as np
+import configparser
 
 class ColorDetector:
-    def __init__(self):
-        pass
-
+    def __init__(self, config_file):
+        self.config = configparser.ConfigParser()
+        self.config.read(config_file)
+        
 
     def classify_color(self, average_hsv_color):
-        # Define HSV color ranges for red, green, blue, yellow, and violet
-        color_ranges = {
-            "Red": (np.array([160, 100, 100]), np.array([180, 255, 255])),
-            "Green": (np.array([35, 50, 50]), np.array([85, 255, 255])),
-            "Blue": (np.array([100, 50, 50]), np.array([130, 255, 255])),
-            "Yellow": (np.array([10, 100, 100]), np.array([45, 255, 255])),
-            "Violet": (np.array([130, 50, 50]), np.array([160, 255, 255]))
-        }
+        color_ranges = {}
+        for color_name in self.config['ColorRanges']:
+            range_str = self.config['ColorRanges'][color_name]
+            lower_hsv, upper_hsv = map(int, range_str.split())
+            color_ranges[color_name] = (np.array(lower_hsv), np.array(upper_hsv))
 
         for color_name, (lower, upper) in color_ranges.items():
             if np.all(average_hsv_color >= lower) and np.all(average_hsv_color <= upper):

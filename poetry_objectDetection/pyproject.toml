@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 opencv-python = "^4.8.1.78"
+datetime = "^5.2"
+configparser = "^6.0.0"
 
 
 [build-system]

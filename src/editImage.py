@@ -7,7 +7,7 @@ from colorDetection import ColorDetector
 # Class to edit the image
 class Labeling:
     def __init__(self):
-        self.color_detector = ColorDetector()
+        self.color_detector = ColorDetector("config.conf")
         
     # Methode to put the text on the right place
     def label_shape(self, detected_shapes, image, contour, objectShape):

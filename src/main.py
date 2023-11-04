@@ -30,7 +30,7 @@ if __name__ == "__main__":
     logger = Logger()
     roiselector = ROISelector()
     # Camera init
-    camera = Camera(camera_index=0)
+    camera = Camera(camera_index=2)
 
     # Create an open-cv window, for ROI selection
     cv2.namedWindow('Live Webcam')
