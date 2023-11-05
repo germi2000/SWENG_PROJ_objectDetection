@@ -1,12 +1,14 @@
+# Import library
 import cv2
 import numpy as np
 
+# Class to detect color
 class ColorDetector:
     def __init__(self):
         pass
 
-
     def classify_color(self, average_hsv_color):
+        
         # Define HSV color ranges for red, green, blue, yellow, and violet
         color_ranges = {
             "Red": (np.array([160, 100, 100]), np.array([180, 255, 255])),
