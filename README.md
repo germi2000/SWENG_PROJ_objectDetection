@@ -88,6 +88,9 @@ __note: select the upper left corner first,then lower right__
 ```
 6. Example output image:
 ![outputImage](https://github.com/germi2000/SWENG_PROJ_objectDetection/blob/main/docs/images/Example_Output.png)
+7. Press q to exit
+8. Select path for the .csv file
+
 # Code extensibility
 1. New colors:  
 Example: (in file colorDetection.py)
