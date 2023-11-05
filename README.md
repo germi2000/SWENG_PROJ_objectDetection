@@ -28,12 +28,7 @@ git clone https://github.com/germi2000/SWENG_PROJ_objectDetection.git
 ```
 poetry shell
 ```
-4. select camera_index in the main.py file
-```
-# Camera init
-    camera = Camera(camera_index=0)
-```
-5. start the main.py file
+4. select the poetry venv
 
 # Features
 Describe the key features of your application. Each feature should have its own section.
@@ -70,28 +65,21 @@ A class named ROISelector for selecting a Region of Interest (ROI) in an image u
 1. Interactive ROI Selection: Allows users to draw a rectangle using mouse interactions to select an area of interest within an image.
 2. Output ROI: Extracts the selected ROI from the input image, returning it for further processing. If no ROI is selected, the original image is returned.
 
-# Usage
-Provide detailed guidance on how to use your application.
-
-## Getting Started
-Give users a quick start guide to using your application. Include basic steps to get up and running.
-
-Step 1: [Instruction]
-Step 2: [Instruction]
-Step 3: [Instruction]
-
-## Example Use Case
-Walk users through a real-world example of how your application can be used. Include screenshots or code snippets to illustrate.
-
-Scenario: [Description]
-Step 1: [Instruction]
-Step 2: [Instruction]
+# Getting Started
+1. select camera_index in the main.py file
+```
+# Camera init
+    camera = Camera(camera_index=0)
+```
+2. Start the main.py file in your python Enviroment
+3. Select the ROI in the "_Live Webcam_" window  
+__note: select the upper left corner first,then lower right__
 
 # runtime view diagram
 Create and include a meaningful runtime view diagram that visually represents how your application works. This diagram should show the different components, modules, or services of your application and how they interact with each other.
 
-# Troubleshooting
-Include a section for troubleshooting common issues users might encounter and solutions for resolving them.
+```mermaid
 
-# FAQ
-Anticipate frequently asked questions and provide answers in this section.
+```
+
+
