@@ -66,9 +66,10 @@ A class named ROISelector for selecting a Region of Interest (ROI) in an image u
     camera = Camera(camera_index=0)
 ```
 2. Start the main.py file in your python Enviroment
-3. Select the ROI in the "_Live Webcam_" window  
+3. The Objects have to be within a range of 0.5m
+4. Select the ROI in the "_Live Webcam_" window  
 __note: select the upper left corner first,then lower right__
-4. If the colors are not detected correctly, adjust the HSV values:
+5. If the colors are not detected correctly, adjust the HSV values:
 ```
  def classify_color(self, average_hsv_color):
         # Define HSV color ranges for red, green, blue, yellow, and violet
