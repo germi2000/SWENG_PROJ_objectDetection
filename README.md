@@ -86,6 +86,8 @@ __note: select the upper left corner first,then lower right__
             "Violet": (np.array([130, 50, 50]), np.array([160, 255, 255]))
         }
 ```
+6. Example output image:
+![outputImage](https://github.com/germi2000/SWENG_PROJ_objectDetection/blob/main/docs/images/Example_Output.png)
 # Code extensibility
 1. New colors:  
 Example: (in file colorDetection.py)
