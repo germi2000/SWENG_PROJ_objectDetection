@@ -27,8 +27,6 @@ poetry shell
 3. select the poetry venv
 
 # Features
-Describe the key features of your application. Each feature should have its own section.
-
 ## cameraCapture.py
 A Class named Camera for capturing video frames from a camera using the OpenCV library. 
 1. Initialization: Creates a camera instance based on the provided camera index (default is 0).
