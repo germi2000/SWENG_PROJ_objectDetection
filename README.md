@@ -80,6 +80,34 @@ Create and include a meaningful runtime view diagram that visually represents ho
 
 ```mermaid
 
+flowchart LR
+A[Initialize Components] -->|Initialize| B[Camera]
+A -->|Initialize| C[ROISelector]
+A -->|Initialize| D[ShapeDetector]
+A -->|Initialize| E[Logger]
+B --> F[Open Camera]
+B --> G[Create 'Live Webcam' Window]
+C --> H[Set Mouse Callback]
+F --> I[Capture Frame]
+G -->|Display| J['Live Webcam' Window]
+I --> K[Output Frame]
+K --> L[Process Frame and ROI Selection]
+L --> M[Detect Objects]
+K --> J['Live Webcam' Window']
+M --> N[Detect Shapes in ROI]
+N --> O[Process Shape Detection]
+O --> P[Log Detected Shapes]
+J -->|Display| Q['Shape Detection Window']
+Q -->|User Input| R[Wait for User Input]
+R -->|Press 'q'| S[Write Data to Log]
+S --> T[Close 'Live Webcam' Window]
+S --> U[Close 'Shape Detection Window']
+S --> V[Close Logger]
+T --> W[Release Camera]
+U --> W
+V --> X[Exit Program]
+
+
 ```
 
 
