@@ -22,6 +22,7 @@ class Labeling:
             cv2.putText(image, objectShape, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
             cv2.putText(image, color_name, (cX - 15, cY - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
 
+
             currentTime = datetime.datetime.now()
             if objectShape is not None and color_name is not None:
                 detected_shapes.append([currentTime, objectShape, color_name])
