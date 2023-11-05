@@ -3,24 +3,37 @@ Detailed Documentation: Create documentation to guide users through your applica
 features, and usage. Please provide a meaningful runtime view diagram showing what your application
 does. The documentation shall be a part of the repository.
 
+# Live Object Pattern Recognition and Color Detection
+
 # Overview
-Provide a brief introduction to your application, including its purpose, benefits, and any important background information.
+SWENG_PROJ_objectDetection is a small Python application that uses the livestream of a camera and performs real-time 
+object pattern recognition and color detection. The recognition is visualized within the livestream and the 
+information gathered is logged into a csv file for later analysis. 
+The code is part of the module SoftwareEngineering at the University of Applied Sciences Grisogns.
 
 
 # Setup
 ## Prerequisites
-List any prerequisites that users need to have in place before they can install and use your application. This could include system requirements, dependencies, or account setup.
-
-Prerequisite 1
-Prerequisite 2
-
+1. Python Enviroment on your Windows PC
+2. Camera
 
 ## Installation
-Provide step-by-step instructions for installing your application. This may include downloading from a repository, using a package manager, or other installation methods.
-Step 1: [Instruction]
-Step 2: [Instruction]
-Step 3: [Instruction]
+step-by-step instructions for installing SWENG_PROJ_objectDetection. 
 
+1. clone the SWENG_PROJ_objectDetection repository  
+```
+git clone https://github.com/germi2000/SWENG_PROJ_objectDetection.git
+```
+3. setup the poetry venv  
+```
+poetry shell
+```
+4. select camera_index in the main.py file
+```
+# Camera init
+    camera = Camera(camera_index=0)
+```
+5. start the main.py file
 
 # Features
 Describe the key features of your application. Each feature should have its own section.
