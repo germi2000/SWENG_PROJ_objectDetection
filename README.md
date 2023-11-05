@@ -56,6 +56,19 @@ A class named Labeling for labeling shapes and their colors in an image. This cl
 1. Label Shape: Labels detected shapes in images, calculating centroids and colors and adding text labels.
 2. Draw Contour: Draws a contour around detected shapes in images.
 
+## logger.py
+A class named Logger for logging detected shapes and their colors to a CSV file. This class is designed to interact with a user interface for selecting the log file path. Here are the key features:
+1. Select Log File: Allows users to choose a log file path using a file dialog, with a default filename and location.
+2. Write Data: Writes detected shape data to the selected CSV file, handling file selection and data writing. Useful for logging data in applications.
+
+## objectDetection.py
+A class named ShapeDetector that detects shapes in an image and labels them. It uses the OpenCV library for image processing and relies on the Labeling class for editing the image and the ColorDetector class for color detection. Here are the key features:
+1. Detect Shapes: Processes an input image, identifies shapes, labels them, and stores the shape information in a list.
+
+## selectableROI.py
+A class named ROISelector for selecting a Region of Interest (ROI) in an image using mouse interactions. Here are the key features:
+1. Interactive ROI Selection: Allows users to draw a rectangle using mouse interactions to select an area of interest within an image.
+2. Output ROI: Extracts the selected ROI from the input image, returning it for further processing. If no ROI is selected, the original image is returned.
 
 # Usage
 Provide detailed guidance on how to use your application.
