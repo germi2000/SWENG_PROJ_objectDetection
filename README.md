@@ -10,7 +10,7 @@ The code is part of the module SoftwareEngineering at the University of Applied 
 
 # Setup
 ## Prerequisites
-1. Python Enviroment on your Windows PC
+1. Python Enviroment on your Windows PC (e.g. Visual Studio Code)
 2. Camera
 
 ## Installation
@@ -20,11 +20,16 @@ step-by-step instructions for installing SWENG_PROJ_objectDetection.
 ```
 git clone https://github.com/germi2000/SWENG_PROJ_objectDetection.git
 ```
-2. setup the poetry venv  
+2. open the project folder in your coding enviroment (e.g. Visual Studio Code)
+3. go to the poetry folder
 ```
-poetry shell
+cd poetry_objectDetection
 ```
-3. select the poetry venv
+4. setup the poetry venv
+```
+poetry install
+```
+5. select the poetry venv as interpreter
 
 # Features
 ## cameraCapture.py
