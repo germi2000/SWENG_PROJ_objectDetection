@@ -38,8 +38,23 @@ poetry shell
 # Features
 Describe the key features of your application. Each feature should have its own section.
 
-## CameraCapture
-...
+## cameraCapture.py
+A Class named Camera for capturing video frames from a camera using the OpenCV library. 
+1. Initialization: Creates a camera instance based on the provided camera index (default is 0).
+2. Error Handling: Raises an error if the camera cannot be opened.
+3. Capture Frame: Captures and returns a video frame as a NumPy array.
+4. Release: Provides a method to release the camera when no longer needed. Useful for freeing system resources.
+
+## colorDetection.py
+A Class named ColorDetector for detecting the color of a object in an image based on its 
+HSV (Hue, Saturation, Value) values. The class has the following features:
+1. Color Classification: Classify the HSV values of the colors: Red, Green, Blue, Yellow and Violet.
+2. Detect Color: Given an image and pixel coordinates, it converts the image to HSV, extracts a small region around the pixel, calculates the average color, and classifies it.
+
+## editImage.py
+A class named Labeling for labeling shapes and their colors in an image. This class is intended for image processing and analysis and has the following features:
+1. Label Shape: Labels detected shapes in images, calculating centroids and colors and adding text labels.
+2. Draw Contour: Draws a contour around detected shapes in images.
 
 
 # Usage
