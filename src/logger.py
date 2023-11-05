@@ -1,8 +1,12 @@
+# Import library
 import csv
 import tkinter as tk
-from tkinter import filedialog
 import os
 
+# Import Class
+from tkinter import filedialog
+
+# Class to write a logger file
 class Logger:
     def __init__(self):
         self.root = tk.Tk()

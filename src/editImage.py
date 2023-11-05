@@ -2,6 +2,7 @@
 import cv2
 import datetime
 
+# Import Class
 from colorDetection import ColorDetector
 
 # Class to edit the image
