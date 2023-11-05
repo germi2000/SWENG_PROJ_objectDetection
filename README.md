@@ -1,9 +1,5 @@
 # SWENG_PROJ_objectDetection
-Detailed Documentation: Create documentation to guide users through your applications setup,
-features, and usage. Please provide a meaningful runtime view diagram showing what your application
-does. The documentation shall be a part of the repository.
-
-# Live Object Pattern Recognition and Color Detection
+## Live Object Pattern Recognition and Color Detection
 
 # Overview
 SWENG_PROJ_objectDetection is a small Python application that uses the livestream of a camera and performs real-time 
@@ -24,11 +20,11 @@ step-by-step instructions for installing SWENG_PROJ_objectDetection.
 ```
 git clone https://github.com/germi2000/SWENG_PROJ_objectDetection.git
 ```
-3. setup the poetry venv  
+2. setup the poetry venv  
 ```
 poetry shell
 ```
-4. select the poetry venv
+3. select the poetry venv
 
 # Features
 Describe the key features of your application. Each feature should have its own section.
@@ -76,38 +72,26 @@ A class named ROISelector for selecting a Region of Interest (ROI) in an image u
 __note: select the upper left corner first,then lower right__
 
 # runtime view diagram
-Create and include a meaningful runtime view diagram that visually represents how your application works. This diagram should show the different components, modules, or services of your application and how they interact with each other.
 
 ```mermaid
 
-flowchart LR
-A[Initialize Components] -->|Initialize| B[Camera]
-A -->|Initialize| C[ROISelector]
-A -->|Initialize| D[ShapeDetector]
-A -->|Initialize| E[Logger]
-B --> F[Open Camera]
-B --> G[Create 'Live Webcam' Window]
-C --> H[Set Mouse Callback]
-F --> I[Capture Frame]
-G -->|Display| J['Live Webcam' Window]
-I --> K[Output Frame]
-K --> L[Process Frame and ROI Selection]
-L --> M[Detect Objects]
-K --> J['Live Webcam' Window']
-M --> N[Detect Shapes in ROI]
-N --> O[Process Shape Detection]
-O --> P[Log Detected Shapes]
-J -->|Display| Q['Shape Detection Window']
-Q -->|User Input| R[Wait for User Input]
-R -->|Press 'q'| S[Write Data to Log]
-S --> T[Close 'Live Webcam' Window]
-S --> U[Close 'Shape Detection Window']
-S --> V[Close Logger]
-T --> W[Release Camera]
-U --> W
-V --> X[Exit Program]
+stateDiagram-v2
 
-
+[*] --> Initialize
+Initialize --> Loop
+Loop --> cameraCapture
+cameraCapture --> show_Live_Webcam
+show_Live_Webcam --> selectableROI
+selectableROI --> objectDetection
+objectDetection --> for_contour_in_contours
+for_contour_in_contours --> colorDetection
+colorDetection --> editImage
+editImage --> for_contour_in_contours
+for_contour_in_contours --> objectDetection
+objectDetection --> Logger
+Logger --> show_Shape_Detection
+show_Shape_Detection --> Exit: if q = pressed
+show_Shape_Detection --> Loop: if q != pressed
+Exit --> Write_log_to_csv
+Write_log_to_csv --> [*]
 ```
-
-
