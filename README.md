@@ -68,7 +68,54 @@ A class named ROISelector for selecting a Region of Interest (ROI) in an image u
 2. Start the main.py file in your python Enviroment
 3. Select the ROI in the "_Live Webcam_" window  
 __note: select the upper left corner first,then lower right__
-
+4. If the colors are not detected correctly, adjust the HSV values:
+```
+ def classify_color(self, average_hsv_color):
+        # Define HSV color ranges for red, green, blue, yellow, and violet
+        color_ranges = {
+            "Red": (np.array([160, 100, 100]), np.array([180, 255, 255])),
+            "Green": (np.array([35, 50, 50]), np.array([85, 255, 255])),
+            "Blue": (np.array([100, 50, 50]), np.array([130, 255, 255])),
+            "Yellow": (np.array([10, 100, 100]), np.array([45, 255, 255])),
+            "Violet": (np.array([130, 50, 50]), np.array([160, 255, 255]))
+        }
+```
+# Code extensibility
+1. New colors:  
+Example: (in file colorDetection.py)
+```
+ def classify_color(self, average_hsv_color):
+        # Define HSV color ranges for red, green, blue, yellow, and violet
+        color_ranges = {
+            "Red": (np.array([160, 100, 100]), np.array([180, 255, 255])),
+            "Green": (np.array([35, 50, 50]), np.array([85, 255, 255])),
+            "Blue": (np.array([100, 50, 50]), np.array([130, 255, 255])),
+            "Yellow": (np.array([10, 100, 100]), np.array([45, 255, 255])),
+            "Violet": (np.array([130, 50, 50]), np.array([160, 255, 255]))
+            "New_color": (np.array([..., ..., ...]), np.array([..., ..., ...]))
+        }
+```
+2. New shapes:  
+Example: (in file objectDetection.py)
+```
+def identify_shape(num_sides, contour):
+    if num_sides == 3:
+        shape = "Triangle"
+    elif num_sides == 4:
+        x, y, w, h = cv2.boundingRect(contour)
+        aspect_ratio = float(w) / h
+        if 0.90 <= aspect_ratio <= 1.10:
+            shape = "Square"
+        else:
+            shape = "Rectangle"
+    elif 5 <= num_sides <= 8:
+        shape = "Circle"
+    elif ...
+        shape = "New_shape"
+    else:
+        shape = "N/A"
+    return shape
+```
 # runtime view diagram
 
 ```mermaid
