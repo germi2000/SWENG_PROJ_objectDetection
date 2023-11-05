@@ -10,8 +10,8 @@ class ColorDetector:
 
     def classify_color(self, average_hsv_color):
         color_ranges = {}
-        for color_name in self.config['ColorRanges']:
-            range_str = self.config['ColorRanges'][color_name]
+        for color_name in self.config["ColorRanges"]:
+            range_str = self.config["ColorRanges"][color_name]
             lower_hsv, upper_hsv = map(int, range_str.split())
             color_ranges[color_name] = (np.array(lower_hsv), np.array(upper_hsv))
 
